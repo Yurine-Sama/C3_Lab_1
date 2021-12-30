@@ -12,6 +12,7 @@ public class MyPlayerBehaviour : MonoBehaviour
 
     //public List<WeaponBehaviour> weapons = new List<WeaponBehaviour>();
     //public weapons[WeaponBehaviour] = new ArrayList[weapons];
+    public int arraySize;
     public WeaponBehaviour[] weapons = new WeaponBehaviour[10];
     public int selectedWeaponIndex;
 
@@ -20,6 +21,9 @@ public class MyPlayerBehaviour : MonoBehaviour
     {
         References.thePlayer = gameObject;
         selectedWeaponIndex = 0;
+        for (int index = 0;index<arraySize;index++ ){
+            weapons[index]= new WeaponBehaviour();
+        }
     }
 
     // Update is called once per frame
@@ -92,7 +96,10 @@ public class MyPlayerBehaviour : MonoBehaviour
         {
             for(int i = 0; i < weapons.Length; i++){
                  //Add it to our internal list
-                 weapons[i] = theirWeapon;
+                 if( i == selectedWeaponIndex){
+                     weapons[i] = theirWeapon;
+                 }
+                 
             //weapons.Add(theirWeapon);
             //Move it to our location
             }
